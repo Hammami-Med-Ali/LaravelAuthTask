@@ -38,4 +38,11 @@ class TicketController extends Controller
         return response()->json($REQUEST);
        
     }
+    public function show()
+    {
+        
+         $tickets = Ticket::all();
+       /*  dd($tickets); */
+        return response()->json($tickets);  
+    }
 }

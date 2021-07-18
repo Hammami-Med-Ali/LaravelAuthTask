@@ -26,3 +26,4 @@ Route::post('/login','App\Http\Controllers\UserController@login');
 Route::post('/ticket','App\Http\Controllers\TicketController@create');
 Route::get('/ticket/{id}', 'App\Http\Controllers\TicketController@showbyid');
 Route::put('/ticket/{id}','App\Http\Controllers\TicketController@update');
+Route::get('/tickets','App\Http\Controllers\TicketController@show');
