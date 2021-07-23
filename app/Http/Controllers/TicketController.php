@@ -8,13 +8,8 @@ class TicketController extends Controller
 {
     public function create(Request $REQUEST)
     {
-        $tickets = new Ticket();
-        $tickets->id = $REQUEST->input('id');
-        $tickets->category = $REQUEST->input('category');
-        $tickets->subject = $REQUEST->input('subject');
-        $tickets->description = $REQUEST->input('description');
-      
-        $tickets->save();
+        $tickets = Ticket::create($REQUEST->all());
+
         return response()->json($tickets);
         
 
@@ -35,7 +30,7 @@ class TicketController extends Controller
         $tickets->subject = $REQUEST->input('subject');
         $tickets->description = $REQUEST->input('description');
         $tickets->save();
-        return response()->json($REQUEST);
+        return response()->json($tickets);
        
     }
     public function show()

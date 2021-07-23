@@ -34,12 +34,13 @@ class UserController extends Controller
         ]);
        
         if(!auth()->attempt($loginData)) {
-            return response(['message'=>'Invalid credentials']);
+            return response()->json(['message'=>'Invalid credentials'] , 403);
         }
 
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
-        return response(['message'=>'Welcome']);
+        return auth()->user();
 
    }
 }
+
